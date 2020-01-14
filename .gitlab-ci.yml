@@ -1,0 +1,14 @@
+image: node:13-slim
+
+stages:
+    - test
+
+test:
+    stage: test
+    script:
+        - yarn
+        - yarn test:ci
+    only:
+        - merge_requests
+    tags:
+        - docker

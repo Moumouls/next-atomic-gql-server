@@ -1,2 +1,13 @@
-# next-atomic-gql-server
-A server for Next Atomic GQL based on Parse Server
+# Next Atomic Server
+
+## Install
+
+`yarn`
+
+## Dev
+
+`yarn dev`
+
+## Schemas
+
+You can create/edit/delete schemas into `./src/schema/schemas`
