@@ -24,7 +24,7 @@ const Toto = {
 		complex: { string: 1, number: 1 },
 	},
 	classLevelPermissions: {
-		addField: false,
+		addField: {},
 	},
 }
 
