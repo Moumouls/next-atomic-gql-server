@@ -79,11 +79,7 @@ export const lib = {
 
 		if (localSchema.indexes) {
 			Object.keys(localSchema.indexes).forEach((indexName) => {
-				if (
-					!cloudIndexes[indexName] &&
-					cloudSchema.className !== '_User' &&
-					cloudSchema.indexName !== 'objectId'
-				)
+				if (!cloudIndexes[indexName] && lib.isNativeIndex(localSchema.className, indexName))
 					newLocalSchema.addIndex(indexName, localSchema.indexes[indexName])
 			})
 		}
@@ -92,16 +88,18 @@ export const lib = {
 
 		// Check deletion
 		Object.keys(cloudIndexes).forEach(async (indexName) => {
-			if (!localSchema.indexes[indexName]) {
-				newLocalSchema.deleteIndex(indexName)
-			} else if (
-				!lib.paramsAreEquals(localSchema.indexes[indexName], cloudIndexes[indexName])
-			) {
-				newLocalSchema.deleteIndex(indexName)
-				indexesToAdd.push({
-					indexName,
-					index: localSchema.indexes[indexName],
-				})
+			if (!lib.isNativeIndex(localSchema.className, indexName)) {
+				if (!localSchema.indexes[indexName]) {
+					newLocalSchema.deleteIndex(indexName)
+				} else if (
+					!lib.paramsAreEquals(localSchema.indexes[indexName], cloudIndexes[indexName])
+				) {
+					newLocalSchema.deleteIndex(indexName)
+					indexesToAdd.push({
+						indexName,
+						index: localSchema.indexes[indexName],
+					})
+				}
 			}
 		})
 		// @ts-ignore
@@ -139,6 +137,22 @@ export const lib = {
 			objectId: { objectId: 1 },
 			...others,
 		}
+	},
+
+	isNativeIndex: (className: string, indexName: string) => {
+		if (className === '_User') {
+			switch (indexName) {
+				case 'username_1':
+					return true
+				case 'objectId':
+					return true
+				case 'email_1':
+					return true
+				default:
+					break
+			}
+		}
+		return false
 	},
 
 	paramsAreEquals: (indexA: any, indexB: any) => {
