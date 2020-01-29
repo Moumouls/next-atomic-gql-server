@@ -34,6 +34,7 @@ export default () =>
 						appId: process.env.APP_ID,
 						masterKey: process.env.MASTER_KEY,
 						appName: 'Octopus',
+						graphQLServerURL: process.env.PUBLIC_GRAPHQL_URL,
 					},
 				],
 				trustProxy: true,
