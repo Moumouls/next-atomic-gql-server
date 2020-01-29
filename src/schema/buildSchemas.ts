@@ -79,7 +79,10 @@ export const lib = {
 
 		if (localSchema.indexes) {
 			Object.keys(localSchema.indexes).forEach((indexName) => {
-				if (!cloudIndexes[indexName] && lib.isNativeIndex(localSchema.className, indexName))
+				if (
+					!cloudIndexes[indexName] &&
+					!lib.isNativeIndex(localSchema.className, indexName)
+				)
 					newLocalSchema.addIndex(indexName, localSchema.indexes[indexName])
 			})
 		}
