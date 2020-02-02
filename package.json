@@ -6,8 +6,8 @@
 	"scripts": {
 		"start": "ts-node index.ts",
 		"lint": "prettier --write \"src/**\" && eslint \"src/**\"",
-		"test": "jest --coverage --watch",
-		"test:ci": "jest --coverage --detectOpenHandles --forceExit",
+		"test": "jest -i --coverage --watch",
+		"test:ci": "jest -i --coverage --detectOpenHandles --forceExit",
 		"dev": "mongodb-runner start && ts-node-dev index.ts",
 		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > schema.graphql"
 	},
