@@ -8,7 +8,7 @@
 		"lint": "prettier --write \"src/**\" && eslint \"src/**\"",
 		"test": "jest -i --coverage --watch",
 		"test:ci": "jest -i --coverage --detectOpenHandles --forceExit",
-		"dev": "mongodb-runner start && ts-node-dev index.ts",
+		"dev": "MONGODB_VERSION=4.0.0 mongodb-runner start && ts-node-dev index.ts",
 		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > schema.graphql"
 	},
 	"repository": {
