@@ -13,19 +13,19 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://gitlab.com/octomarket/backend.git"
+		"url": "git+https://github.com/Moumouls/next-atomic-gql-server.git"
 	},
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://gitlab.com/octomarket/backend/issues"
+		"url": "https://github.com/Moumouls/next-atomic-gql-server"
 	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "pretty-quick --staged"
 		}
 	},
-	"homepage": "https://gitlab.com/octomarket/backend#readme",
+	"homepage": "https://github.com/Moumouls/next-atomic-gql-server",
 	"dependencies": {
 		"@types/express": "^4.17.2",
 		"@types/parse": "^2.9.0",
