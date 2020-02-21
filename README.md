@@ -1,5 +1,6 @@
 # Next Atomic Server
 
+![CI](https://github.com/Moumouls/next-atomic-gql-server/workflows/CI/badge.svg)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Moumouls_next-atomic-gql-server&metric=alert_status)](https://sonarcloud.io/dashboard?id=Moumouls_next-atomic-gql-server)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=Moumouls_next-atomic-gql-server&metric=bugs)](https://sonarcloud.io/dashboard?id=Moumouls_next-atomic-gql-server)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=Moumouls_next-atomic-gql-server&metric=code_smells)](https://sonarcloud.io/dashboard?id=Moumouls_next-atomic-gql-server)
