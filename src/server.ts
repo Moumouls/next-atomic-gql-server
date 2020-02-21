@@ -1,5 +1,6 @@
-import { ParseServer } from 'parse-server'
+import { ParseServer, S3Adapter } from 'parse-server'
 import ParseDashboard from 'parse-dashboard'
+import { Endpoint as S3Endpoint } from 'aws-sdk'
 import './envs'
 import { makeSchemas } from './schema'
 import { Cloud as cloud } from './cloud'
@@ -9,8 +10,25 @@ export default () =>
 		// eslint-disable-next-line
 		const serverURL = `http://localhost:${process.env.PORT}/parse`
 		const server = ParseServer.start({
-			databaseURI: process.env.MONGO_URL,
+			databaseURI: process.env.MONGO_PASSWORD
+				? process.env.MONGO_URL!.replace(
+						'mongodb://',
+						`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@`,
+				  )
+				: process.env.MONGO_URL,
 			cloud,
+			filesAdapter: process.env.S3_ENDPOINT
+				? new S3Adapter({
+						bucket: process.env.S3_BUCKET,
+						region: '',
+						directAccess: false,
+						s3overrides: {
+							accessKeyId: process.env.S3_ACCESS_KEY,
+							secretAccessKey: process.env.S3_SECRET_KEY,
+							endpoint: new S3Endpoint(process.env.S3_BUCKET!),
+						},
+				  })
+				: undefined,
 			appId: process.env.APP_ID,
 			masterKey: process.env.MASTER_KEY,
 			serverURL,
@@ -33,7 +51,7 @@ export default () =>
 						serverURL: process.env.PUBLIC_PARSE_URL,
 						appId: process.env.APP_ID,
 						masterKey: process.env.MASTER_KEY,
-						appName: 'Octopus',
+						appName: 'PeopleVox',
 						graphQLServerURL: process.env.PUBLIC_GRAPHQL_URL,
 					},
 				],
@@ -48,7 +66,7 @@ export default () =>
 								},
 						  ],
 			},
-			{ dev: true },
+			{ dev: true, cookieSessionSecret: process.env.DASHBOARD_SESSION_SECRET || 'test' },
 		)
 		server.expressApp.use('/dashboard', dashboard)
 
