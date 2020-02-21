@@ -24,3 +24,13 @@
 ## Schemas
 
 You can create/edit/delete schemas into `./src/schema/schemas`
+
+## Code Quality/Security: Local SonarQube
+
+You need to have Docker installed on your system, then you can run `yarn sonarqube` (need to be launched once for your entire system/projects).
+To run a scan `yarn scan` results are available at [http://localhost:9000](http://localhost:9000)
+
+## Kubernetes/Rancher
+
+You can find some example files (that you need to modify) of `deployment.yml` and a `.rancher-pipeline.yml`.
+The deployment file do not cover the creation of the MongoDB database

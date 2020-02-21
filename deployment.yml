@@ -1,0 +1,122 @@
+kind: Service
+apiVersion: v1
+metadata:
+    name: next-atomic-back
+    namespace: ${CICD_GIT_BRANCH}
+spec:
+    selector:
+        app: next-atomic-back
+    type: ClusterIP
+    ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 80
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: next-atomic-back
+    namespace: ${CICD_GIT_BRANCH}
+    labels:
+        app: next-atomic-back
+spec:
+    replicas: 2
+    selector:
+        matchLabels:
+            app: next-atomic-back
+    template:
+        metadata:
+            annotations:
+                commit-ref: ${CICD_GIT_BRANCH}:${CICD_GIT_COMMIT}
+                pipeline-ref: ${CICD_EXECUTION_ID}
+            labels:
+                app: next-atomic-back
+        spec:
+            #affinity:
+            #    podAntiAffinity:
+            #        requiredDuringSchedulingIgnoredDuringExecution:
+            #            - labelSelector:
+            #                  matchExpressions:
+            #                      - key: app
+            #                        operator: In
+            #                        values:
+            #                            - next-atomic-back
+            #              topologyKey: kubernetes.io/hostname
+            imagePullSecrets:
+                - name: dockerhub
+            containers:
+                - name: next-atomic-back
+                  image: index.docker.io/aDockerUser/aDockerRepo:next-atomic-back-${CICD_GIT_COMMIT}
+                  #resources:
+                  #    requests:
+                  #        memory: '200Mi'
+                  #        cpu: '100m'
+                  # You can create a "next-atomic-back" Kubernetes Secret or feel free to inject envs in another way
+                  env:
+                      - name: MONGO_URL
+                        valueFrom: # mongodb://mongodb:27017/parse
+                            secretKeyRef:
+                                name: next-atomic-back
+                                key: mongo-url
+                      - name: MONGO_USER
+                        valueFrom: # parse
+                            secretKeyRef:
+                                name: next-atomic-back
+                                key: mongo-user
+                      # From an already deployed helm MongoDB
+                      - name: MONGO_PASSWORD
+                        valueFrom: # aSuperStrongPassword
+                            secretKeyRef:
+                                name: mongodb
+                                key: mongodb-password
+                      - name: PUBLIC_PARSE_URL
+                        valueFrom: # https://api.my-site.com/parse
+                            secretKeyRef:
+                                name: next-atomic-back
+                                key: public-parse-url
+                      - name: PUBLIC_GRAPHQL_URL
+                        valueFrom:
+                            secretKeyRef: # https://api.my-site.com/graphql
+                                name: next-atomic-back
+                                key: public-graphql-url
+                      - name: next-atomic_ADMIN
+                        valueFrom:
+                            secretKeyRef: # adminUserName
+                                name: next-atomic-back
+                                key: next-atomic-admin
+                      - name: next-atomic_PASSWORD
+                        valueFrom:
+                            secretKeyRef: # aSuperStrongAdminPassword
+                                name: next-atomic-back
+                                key: next-atomic-password
+                      - name: next-atomic_SESSION_SECRET
+                        valueFrom:
+                            secretKeyRef: # aSuperStrongSessionSecretRandomString
+                                name: next-atomic-back
+                                key: next-atomic-session-secret
+                      - name: PORT
+                        value: '80'
+                      - name: APP_ID
+                        value: next-atomic
+                      - name: MASTER_KEY
+                        valueFrom: # aSuperSuperStrongSuperLongRandomString
+                            secretKeyRef:
+                                name: next-atomic-back
+                                key: master-key
+                      - name: S3_ACCESS_KEY
+                        valueFrom: #anS3AccessKey
+                            secretKeyRef:
+                                name: next-atomic-back
+                                key: s3-access-key
+                      - name: S3_SECRET_KEY
+                        valueFrom: #aS3SecretKey
+                            secretKeyRef:
+                                name: next-atomic-back
+                                key: s3-secret-key
+                      - name: S3_ENDPOINT
+                        valueFrom: # https://s3.my-site.com
+                            secretKeyRef:
+                                name: next-atomic-back
+                                key: s3-endpoint
+                      - name: S3_BUCKET
+                        value: ${CICD_GIT_BRANCH}

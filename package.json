@@ -9,7 +9,9 @@
 		"test": "jest -i --coverage --watch",
 		"test:ci": "jest -i --coverage --detectOpenHandles --forceExit",
 		"dev": "MONGODB_VERSION=4.0.0 mongodb-runner start && ts-node-dev --ignore-watch node_modules index.ts",
-		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > schema.graphql"
+		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > schema.graphql",
+		"scan": "sonar-scanner",
+		"sonarqube": "docker run -d --name sonarqube -p 9000:9000 sonarqube"
 	},
 	"repository": {
 		"type": "git",
@@ -56,6 +58,7 @@
 		"mongodb-runner": "^4.8.0",
 		"prettier": "^1.19.1",
 		"pretty-quick": "^2.0.1",
+		"sonarqube-scanner": "^2.5.0",
 		"ts-jest": "^24.2.0",
 		"ts-node-dev": "^1.0.0-pre.44"
 	}
