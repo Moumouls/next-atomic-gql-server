@@ -35,4 +35,4 @@ jobs:
             - name: Codecov
               uses: codecov/codecov-action@v1.0.5
               with:
-                token: 908d3875-3da1-408e-9c47-cdae1397aa60
+                token: ${{ secrets.CODECOV_TOKEN }}
