@@ -11,7 +11,8 @@
 		"dev": "MONGODB_VERSION=4.0.0 mongodb-runner start && ts-node-dev --ignore-watch node_modules index.ts",
 		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > schema.graphql",
 		"scan": "sonar-scanner",
-		"sonarqube": "docker run -d --name sonarqube -p 9000:9000 sonarqube"
+		"deploy-sonarqube": "docker run -d --name sonarqube -p 9000:9000 sonarqube",
+		"sonarqube": "docker start sonarqube"
 	},
 	"repository": {
 		"type": "git",
