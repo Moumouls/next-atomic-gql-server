@@ -7,7 +7,7 @@
 		"start": "ts-node index.ts",
 		"lint": "prettier --write \"src/**\" && eslint \"src/**\"",
 		"test": "jest -i --coverage --watch",
-		"test:ci": "jest -i --coverage --detectOpenHandles --forceExit",
+		"test:ci": "yarn lint && jest -i --coverage --detectOpenHandles --forceExit",
 		"dev": "MONGODB_VERSION=4.0.0 mongodb-runner start && ts-node-dev --ignore-watch node_modules index.ts",
 		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > schema.graphql",
 		"scan": "sonar-scanner",
@@ -32,6 +32,7 @@
 	"dependencies": {
 		"@types/express": "^4.17.2",
 		"@types/parse": "^2.9.0",
+		"aws-sdk": "^2.624.0",
 		"express": "^4.17.1",
 		"graphql": "^14.5.8",
 		"graphql-request": "^1.8.2",
