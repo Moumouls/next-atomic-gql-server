@@ -1,3 +1,5 @@
 coverage
 node_modules
 logs
+**/.DS_Store
+src/customSchema/nexusTypes.d.ts

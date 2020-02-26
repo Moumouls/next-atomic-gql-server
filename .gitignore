@@ -2,3 +2,6 @@ logs
 node_modules
 coverage
 .scannerwork
+src/customSchema/nexusTypes.d.ts
+**/.DS_Store
+src/customSchema/nexusTypes.d.ts
