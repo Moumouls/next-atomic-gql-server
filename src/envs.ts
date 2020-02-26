@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 const envs: any = {
 	MONGO_URL: 'mongodb://localhost:27017/parse',
 	PUBLIC_PARSE_URL: 'http://localhost:1337/parse',
@@ -14,7 +16,7 @@ Object.keys(envs).forEach((e) => {
 		if (!process.env[e]) throw new Error(`Env var ${e} is needed`)
 	} else if (!process.env[e]) {
 		// eslint-disable-next-line
-		console.log(`Auto set env ${e} to ${envs[e]}`)
+		if (!process.env.TEST) console.log(`Auto set env ${e} to ${envs[e]}`)
 		process.env[e] = envs[e]
 	}
 })

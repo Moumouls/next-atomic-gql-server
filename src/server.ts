@@ -4,12 +4,13 @@ import { Endpoint as S3Endpoint } from 'aws-sdk'
 import './envs'
 import { makeSchemas } from './schema'
 import { Cloud as cloud } from './cloud'
+import { customSchema } from './customSchema'
 
-export default () =>
+export const server = () =>
 	new Promise((resolve) => {
 		// eslint-disable-next-line
 		const serverURL = `http://localhost:${process.env.PORT}/parse`
-		const server = ParseServer.start({
+		const parseServer = ParseServer.start({
 			databaseURI: process.env.MONGO_PASSWORD
 				? process.env.MONGO_URL!.replace(
 						'mongodb://',
@@ -32,6 +33,7 @@ export default () =>
 			appId: process.env.APP_ID,
 			masterKey: process.env.MASTER_KEY,
 			serverURL,
+			graphQLSchema: customSchema,
 			graphQLPath: '/graphql',
 			playgroundPath: '/playground',
 			mountGraphQL: true,
@@ -40,7 +42,7 @@ export default () =>
 			mountPlayground: process.env.NODE_ENV !== 'production',
 			serverStartComplete: async () => {
 				await makeSchemas()
-				resolve(server)
+				resolve(parseServer)
 			},
 		})
 
@@ -68,12 +70,15 @@ export default () =>
 			},
 			{ dev: true, cookieSessionSecret: process.env.DASHBOARD_SESSION_SECRET || 'test' },
 		)
-		server.expressApp.use('/dashboard', dashboard)
+		parseServer.expressApp.use('/dashboard', dashboard)
 
+		/* istanbul ignore next */
 		if (process.env.NODE_ENV !== 'production') {
-			// eslint-disable-next-line
-			console.log('Playground: http://localhost:1337/playground')
-			// eslint-disable-next-line
-			console.log('Dashboard: http://localhost:1337/dashboard')
+			if (!process.env.TEST) {
+				// eslint-disable-next-line
+				console.log(`Playground: http://localhost:${process.env.PORT}/playground`)
+				// eslint-disable-next-line
+				console.log(`Dashboard: http://localhost:${process.env.PORT}/dashboard`)
+			}
 		}
 	})
