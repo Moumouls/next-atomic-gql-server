@@ -3,3 +3,6 @@ node_modules
 coverage
 .scannerwork
 **/.DS_Store
+generated/*
+!generated/.gitkeep 
+!generated/schema.graphql 

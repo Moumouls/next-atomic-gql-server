@@ -1,8 +1,8 @@
-import { client } from './graphql'
+import { rawClient } from '@graphql'
 
 describe('client', () => {
 	test('should query local server', async () => {
-		const data = await client.request('{health}')
+		const data = await rawClient.request('{health}')
 		expect(data.health).toEqual(true)
 	})
 })
