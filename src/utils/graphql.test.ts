@@ -1,4 +1,4 @@
-import { rawClient } from '@graphql'
+import { rawClient } from './graphql'
 
 describe('client', () => {
 	test('should query local server', async () => {

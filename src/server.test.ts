@@ -1,4 +1,4 @@
-import { rawClient } from '@graphql'
+import { rawClient } from './utils/graphql'
 import { server } from './server'
 
 test('should run server', async () => {

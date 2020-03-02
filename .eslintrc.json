@@ -17,7 +17,7 @@
 	"settings": {
 		"import/resolver": {
 			"alias": {
-				"map": [["@graphql", "./src/utils/graphql"]],
+				"map": [],
 				"extensions": [".ts"]
 			}
 		}
