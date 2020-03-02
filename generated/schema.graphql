@@ -393,21 +393,6 @@ input CreateUserFieldsInput {
 	This is the object authData.
 	"""
 	authData: Object
-
-	"""
-	This is the object firstname.
-	"""
-	firstname: String
-
-	"""
-	This is the object lastname.
-	"""
-	lastname: String
-
-	"""
-	This is the object picture.
-	"""
-	picture: FileInput
 }
 
 input CreateUserInput {
@@ -2351,21 +2336,6 @@ input UpdateUserFieldsInput {
 	This is the object authData.
 	"""
 	authData: Object
-
-	"""
-	This is the object firstname.
-	"""
-	firstname: String
-
-	"""
-	This is the object lastname.
-	"""
-	lastname: String
-
-	"""
-	This is the object picture.
-	"""
-	picture: FileInput
 }
 
 input UpdateUserInput {
@@ -2438,21 +2408,6 @@ type User implements ParseObject & Node {
 	This is the object authData.
 	"""
 	authData: Object
-
-	"""
-	This is the object firstname.
-	"""
-	firstname: String
-
-	"""
-	This is the object lastname.
-	"""
-	lastname: String
-
-	"""
-	This is the object picture.
-	"""
-	picture: FileInfo
 }
 
 """
@@ -2542,21 +2497,6 @@ input UserLoginWithInput {
 	This is the object emailVerified.
 	"""
 	emailVerified: Boolean
-
-	"""
-	This is the object firstname.
-	"""
-	firstname: String
-
-	"""
-	This is the object lastname.
-	"""
-	lastname: String
-
-	"""
-	This is the object picture.
-	"""
-	picture: FileInput
 }
 
 """
@@ -2581,12 +2521,6 @@ enum UserOrder {
 	emailVerified_DESC
 	authData_ASC
 	authData_DESC
-	firstname_ASC
-	firstname_DESC
-	lastname_ASC
-	lastname_DESC
-	picture_ASC
-	picture_DESC
 	id_ASC
 	id_DESC
 }
@@ -2694,21 +2628,6 @@ input UserWhereInput {
 	This is the object authData.
 	"""
 	authData: ObjectWhereInput
-
-	"""
-	This is the object firstname.
-	"""
-	firstname: StringWhereInput
-
-	"""
-	This is the object lastname.
-	"""
-	lastname: StringWhereInput
-
-	"""
-	This is the object picture.
-	"""
-	picture: FileWhereInput
 
 	"""
 	This is the object id.

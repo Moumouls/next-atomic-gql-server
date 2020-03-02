@@ -1,7 +1,6 @@
 // eslint-disable-next-line
 import { MongoMemoryServer } from 'mongodb-memory-server'
 import { server } from '../server'
-
 // eslint-disable-next-line
 let cachedServer: any
 export const getCachedServer = () => cachedServer
