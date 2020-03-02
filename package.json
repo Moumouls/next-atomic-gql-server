@@ -6,10 +6,10 @@
 	"scripts": {
 		"start": "ts-node index.ts",
 		"lint": "prettier --write \"src/**\" && eslint \"src/**\"",
-		"test": "TEST=true jest -i --coverage --watch",
-		"test:ci": "yarn lint && TEST=true jest -i --coverage --detectOpenHandles --forceExit",
-		"dev": "MONGODB_VERSION=4.0 mongodb-runner start && ts-node-dev --ignore-watch node_modules index.ts",
-		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > schema.graphql",
+		"test": "graphql-codegen && TEST=true jest -i --coverage --watch",
+		"test:ci": "graphql-codegen && yarn lint && TEST=true jest -i --coverage --detectOpenHandles --forceExit",
+		"dev": "MONGODB_VERSION=4.0 mongodb-runner start && concurrently -r \"ts-node-dev --ignore-watch node_modules index.ts\" \"sleep 10 && nodemon\" \"graphql-codegen --watch\"",
+		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > generated/schema.graphql",
 		"scan": "sonar-scanner",
 		"deploy-sonarqube": "docker run -d --name sonarqube -p 9000:9000 sonarqube",
 		"sonarqube": "docker start sonarqube"
@@ -30,6 +30,9 @@
 	},
 	"homepage": "https://github.com/Moumouls/next-atomic-gql-server",
 	"dependencies": {
+		"@graphql-codegen/typescript": "^1.12.2",
+		"@graphql-codegen/typescript-graphql-request": "^1.12.2",
+		"@graphql-codegen/typescript-operations": "^1.12.2",
 		"@types/express": "^4.17.2",
 		"@types/parse": "^2.9.0",
 		"aws-sdk": "^2.624.0",
@@ -45,12 +48,15 @@
 		"typescript": "^3.7.2"
 	},
 	"devDependencies": {
+		"@graphql-codegen/cli": "^1.12.2",
 		"@types/jest": "^24.0.23",
 		"@typescript-eslint/eslint-plugin": "^2.9.0",
 		"@typescript-eslint/parser": "^2.9.0",
+		"concurrently": "^5.1.0",
 		"eslint": "^6.7.1",
 		"eslint-config-airbnb-base": "^14.0.0",
 		"eslint-config-prettier": "^6.7.0",
+		"eslint-import-resolver-alias": "^1.1.2",
 		"eslint-plugin-import": "^2.18.2",
 		"eslint-plugin-prettier": "^3.1.1",
 		"get-graphql-schema": "^2.1.2",
@@ -59,6 +65,7 @@
 		"merge": "^1.2.1",
 		"mongodb-memory-server": "^6.0.1",
 		"mongodb-runner": "^4.8.0",
+		"nodemon": "^2.0.2",
 		"prettier": "^1.19.1",
 		"pretty-quick": "^2.0.1",
 		"sonarqube-scanner": "^2.5.0",

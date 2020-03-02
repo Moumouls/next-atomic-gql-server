@@ -1,0 +1,5 @@
+{
+	"watch": ["./src/**/*.graphql"],
+	"ext": "graphql",
+	"exec": "yarn generate-schema"
+}

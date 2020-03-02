@@ -1,5 +1,5 @@
+import { rawClient } from '@graphql'
 import { server } from './server'
-import { client } from './utils/graphql'
 
 test('should run server', async () => {
 	try {
@@ -11,6 +11,6 @@ test('should run server', async () => {
 
 test('should server be healthy', async () => {
 	const query = '{ health }'
-	const { health } = await client.request(query)
+	const { health } = await rawClient.request(query)
 	expect(health).toBeTruthy()
 })
