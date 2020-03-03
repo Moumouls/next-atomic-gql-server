@@ -3,32 +3,32 @@ import { MongoMemoryServer } from 'mongodb-memory-server'
 import { server } from '../server'
 
 // eslint-disable-next-line
-let cachedServer: any
-export const closeServer = () =>
+export const closeServer = (parseServer: any) =>
 	new Promise((resolve) => {
-		if (cachedServer) {
-			cachedServer.handleShutdown().then(() => {
-				cachedServer.server.close(() => {
-					resolve()
-				})
+		parseServer.handleShutdown().then(() => {
+			parseServer.server.close(() => {
+				resolve()
 			})
-		} else {
-			resolve()
-		}
+		})
 	})
 
 export const startServer = async () => {
-	await closeServer()
 	process.env.PORT = '1340'
 	process.env.PUBLIC_PARSE_URL = 'http://localhost:1340/parse'
 	process.env.PUBLIC_GRAPHQL_URL = 'http://localhost:1340/graphql'
 	const mongod = new MongoMemoryServer()
 	const uri = await mongod.getConnectionString()
 	process.env.MONGO_URL = uri
-	cachedServer = await server()
+	return server()
 }
 
 export const setup = () => {
-	beforeAll(async () => startServer())
-	afterAll(async () => closeServer())
+	let parseServer: any
+	beforeAll(async () => {
+		parseServer = await startServer()
+	})
+	afterAll(async () => {
+		await closeServer(parseServer)
+		parseServer = undefined
+	})
 }
