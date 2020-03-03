@@ -14,14 +14,6 @@
 		"ecmaVersion": 2018,
 		"sourceType": "module"
 	},
-	"settings": {
-		"import/resolver": {
-			"alias": {
-				"map": [],
-				"extensions": [".ts"]
-			}
-		}
-	},
 	"plugins": ["@typescript-eslint"],
 	"rules": {
 		"semi": 0,
