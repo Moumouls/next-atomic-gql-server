@@ -1,4 +1,7 @@
+import { setup } from './testsHelper'
 import { rawClient } from './graphql'
+
+setup()
 
 describe('client', () => {
 	test('should query local server', async () => {

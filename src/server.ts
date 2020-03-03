@@ -33,6 +33,7 @@ export const server = () =>
 			appId: process.env.APP_ID,
 			masterKey: process.env.MASTER_KEY,
 			serverURL,
+			silent: !!process.env.TEST,
 			graphQLSchema: customSchema,
 			graphQLPath: '/graphql',
 			playgroundPath: '/playground',
