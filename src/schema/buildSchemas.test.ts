@@ -1,5 +1,8 @@
+import { setup } from '../utils/testsHelper'
 import { buildSchemas, lib as buildSchemasLib } from './buildSchemas'
 import Parse from '../utils/Parse'
+
+setup()
 
 const Toto = {
 	className: 'Toto',

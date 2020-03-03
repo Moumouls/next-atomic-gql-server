@@ -1,16 +1,21 @@
 import { rawClient } from './utils/graphql'
-import { server } from './server'
+import { startServer, closeServer } from './utils/testsHelper'
 
-test('should run server', async () => {
-	try {
-		await server()
-	} catch (e) {
-		expect(e).toBeUndefined()
-	}
-})
+describe('server', () => {
+	test('should run server', async () => {
+		try {
+			await startServer()
+		} catch (e) {
+			expect(e).toBeUndefined()
+		}
+		await closeServer()
+	})
 
-test('should server be healthy', async () => {
-	const query = '{ health }'
-	const { health } = await rawClient.request(query)
-	expect(health).toBeTruthy()
+	test('should server be healthy', async () => {
+		await startServer()
+		const query = '{ health }'
+		const { health } = await rawClient.request(query)
+		expect(health).toBeTruthy()
+		await closeServer()
+	})
 })
