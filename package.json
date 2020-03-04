@@ -6,8 +6,8 @@
 	"scripts": {
 		"start": "ts-node index.ts",
 		"lint": "prettier --write \"src/**\" && eslint \"src/**\"",
-		"test": "graphql-codegen && TEST=true jest -i --coverage --watch",
-		"test:ci": "graphql-codegen && yarn lint && TEST=true jest -i --coverage --detectOpenHandles --forceExit",
+		"test": "graphql-codegen && TEST=true jest --coverage --watch",
+		"test:ci": "graphql-codegen && yarn lint && TEST=true jest --coverage",
 		"dev": "MONGODB_VERSION=4.0 mongodb-runner start && concurrently -r \"ts-node-dev --ignore-watch node_modules index.ts\" \"sleep 5 && yarn generate-schema && nodemon\" \"graphql-codegen --watch\"",
 		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > generated/schema.graphql",
 		"scan": "sonar-scanner",
@@ -49,6 +49,7 @@
 		"typescript": "^3.7.2"
 	},
 	"devDependencies": {
+		"@types/get-port": "^4.2.0",
 		"@types/jest": "^24.0.23",
 		"@typescript-eslint/eslint-plugin": "^2.9.0",
 		"@typescript-eslint/parser": "^2.9.0",
@@ -60,6 +61,7 @@
 		"eslint-plugin-import": "^2.18.2",
 		"eslint-plugin-prettier": "^3.1.1",
 		"get-graphql-schema": "^2.1.2",
+		"get-port": "^5.1.1",
 		"husky": "^3.1.0",
 		"jest": "^24.9.0",
 		"merge": "^1.2.1",
