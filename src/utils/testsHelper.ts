@@ -1,25 +1,34 @@
 // eslint-disable-next-line
 import { MongoMemoryServer } from 'mongodb-memory-server'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import getPort from 'get-port'
 import { server } from '../server'
+import { refreshClients } from './graphql'
 
 // eslint-disable-next-line
 export const closeServer = (parseServer: any) =>
 	new Promise((resolve) => {
-		parseServer.handleShutdown().then(() => {
-			parseServer.server.close(() => {
+		parseServer.server.handleShutdown().then(() => {
+			parseServer.server.server.close(async () => {
+				await parseServer.mongo.stop()
+				// eslint-disable-next-line no-param-reassign
+				parseServer.server = undefined
+				// eslint-disable-next-line no-param-reassign
+				parseServer.mongo = undefined
 				resolve()
 			})
 		})
 	})
 
 export const startServer = async () => {
-	process.env.PORT = '1340'
+	process.env.PORT = `${await getPort()}`
 	process.env.PUBLIC_PARSE_URL = 'http://localhost:1340/parse'
 	process.env.PUBLIC_GRAPHQL_URL = 'http://localhost:1340/graphql'
-	const mongod = new MongoMemoryServer()
-	const uri = await mongod.getConnectionString()
+	const mongo = new MongoMemoryServer()
+	const uri = await mongo.getConnectionString()
 	process.env.MONGO_URL = uri
-	return server()
+	refreshClients()
+	return { server: await server(), mongo }
 }
 
 export const setup = () => {
@@ -29,6 +38,5 @@ export const setup = () => {
 	})
 	afterAll(async () => {
 		await closeServer(parseServer)
-		parseServer = undefined
 	})
 }
