@@ -9078,9 +9078,9 @@ parse-node-version@^1.0.0:
   resolved "https://registry.yarnpkg.com/parse-node-version/-/parse-node-version-1.0.1.tgz#e2b5dbede00e7fa9bc363607f53327e8b073189b"
   integrity sha512-3YHlOa/JgH6Mnpr05jP9eDG254US9ek25LyIxZlDItp2iJtwyaXQb57lBYLdT3MowkUFYEV2XXNAYIPlESvJlA==
 
-parse-server@moumouls/parse-server#4.0.6:
+parse-server@moumouls/parse-server#4.0.8:
   version "4.1.0"
-  resolved "https://codeload.github.com/moumouls/parse-server/tar.gz/d1245991bb954459e82db407dfcc27fa13a8ca18"
+  resolved "https://codeload.github.com/moumouls/parse-server/tar.gz/d6293b2f4dcaec446df27fb1c4bf057ea5956ff7"
   dependencies:
     "@apollographql/graphql-playground-html" "1.6.24"
     "@parse/fs-files-adapter" "1.0.1"
