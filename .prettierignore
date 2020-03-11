@@ -2,3 +2,4 @@ coverage
 logs
 **/.DS_Store
 src/customSchema/nexusTypes.d.ts
+generated/**/*
