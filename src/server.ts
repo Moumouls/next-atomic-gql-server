@@ -33,6 +33,7 @@ export const server = () =>
 			appId: process.env.APP_ID,
 			masterKey: process.env.MASTER_KEY,
 			serverURL,
+			publicServerURL: process.env.PUBLIC_PARSE_URL,
 			schemaCacheTTL: process.env.NODE_ENV !== 'production' ? 0 : 30000,
 			silent: !!process.env.TEST,
 			graphQLSchema: customSchema,
