@@ -26,7 +26,7 @@ export const server = () =>
 						s3overrides: {
 							accessKeyId: process.env.S3_ACCESS_KEY,
 							secretAccessKey: process.env.S3_SECRET_KEY,
-							endpoint: new S3Endpoint(process.env.S3_BUCKET!),
+							endpoint: new S3Endpoint(process.env.S3_ENDPOINT!),
 						},
 				  })
 				: undefined,
