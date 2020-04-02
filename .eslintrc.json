@@ -4,21 +4,23 @@
 		"node": true,
 		"jest": true
 	},
-	"extends": ["airbnb-base", "plugin:import/typescript"],
+	"extends": ["airbnb-typescript/base"],
 	"globals": {
 		"Atomics": "readonly",
 		"SharedArrayBuffer": "readonly"
 	},
 	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
-		"ecmaVersion": 2018,
-		"sourceType": "module"
+		"project": "./tsconfig.json"
 	},
 	"plugins": ["@typescript-eslint"],
 	"rules": {
 		"semi": 0,
+		"@typescript-eslint/semi": 0,
+		"@typescript-eslint/no-use-before-define": 0,
 		"indent": [0, 4],
 		"no-tabs": 0,
+		"@typescript-eslint/indent": [0, 4],
 		"no-use-before-define": 0,
 		"no-mixed-spaces-and-tabs": 0,
 		"import/prefer-default-export": 0,
