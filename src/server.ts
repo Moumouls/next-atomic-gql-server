@@ -56,7 +56,7 @@ export const server = () =>
 						serverURL: process.env.PUBLIC_PARSE_URL,
 						appId: process.env.APP_ID,
 						masterKey: process.env.MASTER_KEY,
-						appName: 'PeopleVox',
+						appName: 'AppName',
 						graphQLServerURL: process.env.PUBLIC_GRAPHQL_URL,
 					},
 				],
