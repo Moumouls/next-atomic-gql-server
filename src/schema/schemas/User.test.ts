@@ -1,4 +1,3 @@
-import Parse from '../../utils/Parse'
 import { User } from './User'
 import { setup } from '../../utils/testsHelper'
 

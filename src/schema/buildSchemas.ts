@@ -1,5 +1,3 @@
-import Parse from '../utils/Parse'
-
 export const buildSchemas = async (localSchemas: any[]) => {
 	const allCloudSchema = (await Parse.Schema.all()).filter(
 		(s: any) => !lib.isDefaultSchema(s.className),

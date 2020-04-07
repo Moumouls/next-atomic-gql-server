@@ -8,7 +8,7 @@ COPY . /srv/app
 
 WORKDIR /srv/app
 
-RUN NODE_ENV=development yarn
+RUN NODE_ENV=development yarn && yarn build
 
 # Server run on 80
-CMD yarn start
+CMD node lib/index.js

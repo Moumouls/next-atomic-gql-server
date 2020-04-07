@@ -40,6 +40,8 @@ export const server = () =>
 			graphQLPath: '/graphql',
 			playgroundPath: '/playground',
 			mountGraphQL: true,
+			logLevel: 'error',
+			logsFolder: null,
 			port: Number(process.env.PORT),
 			startLiveQueryServer: true,
 			mountPlayground: process.env.NODE_ENV !== 'production',

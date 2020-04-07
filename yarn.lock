@@ -512,6 +512,14 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime-corejs3@7.9.2":
+  version "7.9.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime-corejs3/-/runtime-corejs3-7.9.2.tgz#26fe4aa77e9f1ecef9b776559bbb8e84d34284b7"
+  integrity sha512-HHxmgxbIzOfFlZ+tdeRKtaxWOMUoCG5Mu3wKeUmOxjYrwb3AAHgnmtCUbPPK11/raIWLIBK250t8E2BPO0p7jA==
+  dependencies:
+    core-js-pure "^3.0.0"
+    regenerator-runtime "^0.13.4"
+
 "@babel/runtime@7.6.3":
   version "7.6.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.6.3.tgz#935122c74c73d2240cafd32ddb5fc2a6cd35cf1f"
@@ -532,6 +540,13 @@
   integrity sha512-uCnC2JEVAu8AKB5do1WRIsvrdJ0flYx/A/9f/6chdacnEZ7LmavjdsDXr5ksYBegxtuTPR5Va9/+13QF/kFkCA==
   dependencies:
     regenerator-runtime "^0.13.2"
+
+"@babel/runtime@7.9.2":
+  version "7.9.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.2.tgz#d90df0583a3a252f09aaa619665367bae518db06"
+  integrity sha512-NE2DtOdufG7R5vnfQUTehdTfNycfUANEtCa9PssN9O/xmTzP4E08UI797ixaei6hBEVL9BI/PsdJS5x7mWoB9Q==
+  dependencies:
+    regenerator-runtime "^0.13.4"
 
 "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.0", "@babel/runtime@^7.6.3":
   version "7.8.4"
@@ -3644,6 +3659,11 @@ crypto-js@3.1.9-1:
   resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.1.9-1.tgz#fda19e761fc077e01ffbfdc6e9fdfc59e8806cd8"
   integrity sha1-/aGedh/Ad+Af+/3G6f38WeiAbNg=
 
+crypto-js@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-4.0.0.tgz#2904ab2677a9d042856a2ea2ef80de92e4a36dcc"
+  integrity sha512-bzHZN8Pn+gS7DQA6n+iUmBfl0hO5DJq++QP3U6uTucDtk/0iGpXd/Gg7CGR0p8tJhofJyaKoWBuJI4eAO00BBg==
+
 crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
@@ -5183,10 +5203,10 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.1.tgz#69e57caa8f0eacbc281d2e2cb458d46fdb449e08"
   integrity sha512-a1hQMktqW9Nmqr5aktAux3JMNqaucxGcjtjWnZLHX7yyPCmlSV3M54nGYbqT8K+0GhF3NBgmJCc3ma+WOgX8Jg==
 
-follow-redirects@1.10.0:
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.10.0.tgz#01f5263aee921c6a54fb91667f08f4155ce169eb"
-  integrity sha512-4eyLK6s6lH32nOvLLwlIOnr9zrL8Sm+OvW4pVTJNoXeGzYIkHVf+pADQi+OJ0E67hiuSLezPVPyBcIZO50TmmQ==
+follow-redirects@1.11.0:
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.11.0.tgz#afa14f08ba12a52963140fe43212658897bc0ecb"
+  integrity sha512-KZm0V+ll8PfBrKwMzdo5D13b1bur9Iq9Zd/RMmAoQQcl2PxxFml8cxXPaaPYVbV0RjNjq1CU7zIzAOqtUPudmA==
   dependencies:
     debug "^3.0.0"
 
@@ -5901,7 +5921,7 @@ graphql-upload@^8.0.2:
     http-errors "^1.7.3"
     object-path "^0.11.4"
 
-"graphql@14.0.2 - 14.2.0 || ^14.3.1", graphql@14.6.0, graphql@^14.0.2, graphql@^14.5.3, graphql@^14.5.8:
+"graphql@14.0.2 - 14.2.0 || ^14.3.1", graphql@^14.0.2, graphql@^14.5.3, graphql@^14.5.8:
   version "14.6.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.6.0.tgz#57822297111e874ea12f5cd4419616930cd83e49"
   integrity sha512-VKzfvHEKybTKjQVpTFrA5yUq2S9ihcZvfJAtsDBBCuV6wauPu1xl/f9ehgVf0FcEJJs4vz6ysb/ZMkGigQZseg==
@@ -9204,9 +9224,9 @@ parse-node-version@^1.0.0:
   resolved "https://registry.yarnpkg.com/parse-node-version/-/parse-node-version-1.0.1.tgz#e2b5dbede00e7fa9bc363607f53327e8b073189b"
   integrity sha512-3YHlOa/JgH6Mnpr05jP9eDG254US9ek25LyIxZlDItp2iJtwyaXQb57lBYLdT3MowkUFYEV2XXNAYIPlESvJlA==
 
-parse-server@moumouls/parse-server#4.0.11:
-  version "4.1.0"
-  resolved "https://codeload.github.com/moumouls/parse-server/tar.gz/d56cd797fd98062bd9ef67c3b1c65a8071692aaa"
+parse-server@moumouls/parse-server#4.0.12:
+  version "4.2.0"
+  resolved "https://codeload.github.com/moumouls/parse-server/tar.gz/12432f6455357eeb2498269024345189266e34b3"
   dependencies:
     "@apollographql/graphql-playground-html" "1.6.24"
     "@parse/fs-files-adapter" "1.0.1"
@@ -9220,8 +9240,8 @@ parse-server@moumouls/parse-server#4.0.11:
     cors "2.8.5"
     deepcopy "2.0.0"
     express "4.17.1"
-    follow-redirects "1.10.0"
-    graphql "14.6.0"
+    follow-redirects "1.11.0"
+    graphql "^14.5.8"
     graphql-list-fields "2.0.2"
     graphql-relay "^0.6.0"
     graphql-tools "^4.0.7"
@@ -9234,8 +9254,8 @@ parse-server@moumouls/parse-server#4.0.11:
     lru-cache "5.1.1"
     mime "2.4.4"
     mongodb "3.5.5"
-    parse "2.11.0"
-    pg-promise "10.4.4"
+    parse "2.12.0"
+    pg-promise "10.5.0"
     pluralize "^8.0.0"
     redis "3.0.2"
     semver "7.1.3"
@@ -9264,16 +9284,17 @@ parse@2.10.0:
     ws "7.2.0"
     xmlhttprequest "1.8.0"
 
-parse@2.11.0, parse@^2.9.1:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/parse/-/parse-2.11.0.tgz#aebef56aa3ebe4636ffd05f8a5979c13b4fc5c5d"
-  integrity sha512-dbGdA5M1ylky4T/b5pOXeYhsHwzATz/JbweCiBtdJLsnb8SylSSgA7V0U96RtXBI1Hfzp5uFZpqmnUKr5t69NA==
+parse@2.12.0:
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/parse/-/parse-2.12.0.tgz#e4dff521aa133df11a2dc0168c3385934825a65c"
+  integrity sha512-vl5bAoSylr3lhK2/6ugZYrpWE66TqJPSFYEJTRcoBeD0cEsCYn7mgqaRdZmHYVYwh16y8EKXBeDSFpv5rtDfHA==
   dependencies:
-    "@babel/runtime" "7.7.7"
-    "@babel/runtime-corejs3" "7.7.7"
-    crypto-js "3.1.9-1"
+    "@babel/runtime" "7.9.2"
+    "@babel/runtime-corejs3" "7.9.2"
+    crypto-js "4.0.0"
+    react-native-crypto-js "^1.0.0"
     uuid "3.3.3"
-    ws "7.2.1"
+    ws "7.2.3"
     xmlhttprequest "1.8.0"
 
 parse@2.8.0:
@@ -9285,6 +9306,18 @@ parse@2.8.0:
     "@babel/runtime-corejs3" "7.6.3"
     uuid "3.3.3"
     ws "7.1.2"
+    xmlhttprequest "1.8.0"
+
+parse@^2.9.1:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/parse/-/parse-2.11.0.tgz#aebef56aa3ebe4636ffd05f8a5979c13b4fc5c5d"
+  integrity sha512-dbGdA5M1ylky4T/b5pOXeYhsHwzATz/JbweCiBtdJLsnb8SylSSgA7V0U96RtXBI1Hfzp5uFZpqmnUKr5t69NA==
+  dependencies:
+    "@babel/runtime" "7.7.7"
+    "@babel/runtime-corejs3" "7.7.7"
+    crypto-js "3.1.9-1"
+    uuid "3.3.3"
+    ws "7.2.1"
     xmlhttprequest "1.8.0"
 
 parseurl@^1.3.2, parseurl@~1.3.3:
@@ -9454,18 +9487,18 @@ pg-packet-stream@^1.1.0:
   resolved "https://registry.yarnpkg.com/pg-packet-stream/-/pg-packet-stream-1.1.0.tgz#e45c3ae678b901a2873af1e17b92d787962ef914"
   integrity sha512-kRBH0tDIW/8lfnnOyTwKD23ygJ/kexQVXZs7gEyBljw4FYqimZFxnMMx50ndZ8In77QgfGuItS5LLclC2TtjYg==
 
-pg-pool@^2.0.10:
-  version "2.0.10"
-  resolved "https://registry.yarnpkg.com/pg-pool/-/pg-pool-2.0.10.tgz#842ee23b04e86824ce9d786430f8365082d81c4a"
-  integrity sha512-qdwzY92bHf3nwzIUcj+zJ0Qo5lpG/YxchahxIN8+ZVmXqkahKXsnl2aiJPHLYN9o5mB/leG+Xh6XKxtP7e0sjg==
+pg-pool@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/pg-pool/-/pg-pool-3.0.0.tgz#2330d18888db1c444a67461122b44f83d2c9c231"
+  integrity sha512-AJWVHFre7CjOtu4D/PQjX+U9uhNKGRFSO9xQAzB7cn1Xu1vmhyo8s8eg9cw6kf2m2/+TYuvMH8i5jeFPSdllPw==
 
-pg-promise@10.4.4:
-  version "10.4.4"
-  resolved "https://registry.yarnpkg.com/pg-promise/-/pg-promise-10.4.4.tgz#f5f2432adb3a5f0c3babc89df1cb8a55a475ce32"
-  integrity sha512-N2NsOgKxrnNPwP0Q609ZmxmAZEo2TQ26SzSvlbZWQb8vteqUhOPpU/pHi9DGatJrPcXNoyr4xjRw42CNfEBg/w==
+pg-promise@10.5.0:
+  version "10.5.0"
+  resolved "https://registry.yarnpkg.com/pg-promise/-/pg-promise-10.5.0.tgz#43e290eb6a2cdd068239dfb3d053fb5e930088e6"
+  integrity sha512-4eM/wnmymZA/NYqYojtK5OtZJNqdWKkHwYjT6zWIFnAWQyUnEsM8QWIgSAubGrzdf5rpsGnco8OjCoZxu3HCuw==
   dependencies:
     assert-options "0.6.1"
-    pg "7.18.2"
+    pg "8.0.0"
     pg-minify "1.5.2"
     spex "3.0.1"
 
@@ -9480,16 +9513,16 @@ pg-types@^2.1.0:
     postgres-date "~1.0.4"
     postgres-interval "^1.1.0"
 
-pg@7.18.2:
-  version "7.18.2"
-  resolved "https://registry.yarnpkg.com/pg/-/pg-7.18.2.tgz#4e219f05a00aff4db6aab1ba02f28ffa4513b0bb"
-  integrity sha512-Mvt0dGYMwvEADNKy5PMQGlzPudKcKKzJds/VbOeZJpb6f/pI3mmoXX0JksPgI3l3JPP/2Apq7F36O63J7mgveA==
+pg@8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/pg/-/pg-8.0.0.tgz#6559c6f895b9e735b3079995acb5de3f39ade59f"
+  integrity sha512-jinx9Xcmkeh7Y7gatu2EJiXr37mcDeF0G5X14MjqPMwYjoZMk7PMMSTTXQQl03GRp2IICxo/zyybqfv2RNgXsg==
   dependencies:
     buffer-writer "2.0.0"
     packet-reader "1.0.0"
     pg-connection-string "0.1.3"
     pg-packet-stream "^1.1.0"
-    pg-pool "^2.0.10"
+    pg-pool "^3.0.0"
     pg-types "^2.1.0"
     pgpass "1.x"
     semver "4.3.2"
@@ -10019,6 +10052,11 @@ react-modal@^3.1.11:
     react-lifecycles-compat "^3.0.0"
     warning "^4.0.3"
 
+react-native-crypto-js@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-crypto-js/-/react-native-crypto-js-1.0.0.tgz#e677e022e147f41b35614416c92d655f87e2450a"
+  integrity sha512-FNbLuG/HAdapQoybeZSoes1PWdOj0w242gb+e1R0hicf3Gyj/Mf8M9NaED2AnXVOX01b2FXomwUiw1xP1K+8sA==
+
 react-redux@5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.1.1.tgz#88e368682c7fa80e34e055cd7ac56f5936b0f52f"
@@ -10386,6 +10424,11 @@ regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+
+regenerator-runtime@^0.13.4:
+  version "0.13.5"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.5.tgz#d878a1d094b4306d10b9096484b33ebd55e26697"
+  integrity sha512-ZS5w8CpKFinUzOwW3c83oPeVXoNsrLsaCoLtJvAClH135j/R77RuymhiSErhm2lKcwSCIpmvIWSbDkIfAqKQlA==
 
 regex-not@^1.0.0, regex-not@^1.0.2:
   version "1.0.2"
