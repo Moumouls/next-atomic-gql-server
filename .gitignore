@@ -1,5 +1,6 @@
 logs
 node_modules
+lib
 coverage
 .scannerwork
 **/.DS_Store
