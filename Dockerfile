@@ -8,7 +8,7 @@ COPY . /srv/app
 
 WORKDIR /srv/app
 
-RUN NODE_ENV=development yarn && yarn build
+RUN NODE_ENV=development yarn && yarn build && rm -rf node_modules && yarn --prod && yarn cache clean
 
 # Server run on 80
 CMD node lib/index.js
