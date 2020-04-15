@@ -24,6 +24,7 @@ export const server = () =>
 						region: '',
 						directAccess: false,
 						s3overrides: {
+							s3ForcePathStyle: true,
 							accessKeyId: process.env.S3_ACCESS_KEY,
 							secretAccessKey: process.env.S3_SECRET_KEY,
 							endpoint: new S3Endpoint(process.env.S3_ENDPOINT!),
