@@ -4,7 +4,8 @@
 	"description": "",
 	"main": "index.ts",
 	"scripts": {
-		"start": "ts-node index.ts",
+		"start": "yarn build && node lib/index.js",
+		"start:with:mongo": "MONGODB_VERSION=4.0 mongodb-runner start && yarn start",
 		"build": "graphql-codegen && tsc --outDir lib -p .",
 		"lint": "prettier --write \"src/**\" && eslint \"src/**\"",
 		"test": "graphql-codegen && TEST=true jest --coverage --watch",
