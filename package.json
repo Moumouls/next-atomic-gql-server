@@ -9,7 +9,7 @@
 		"lint": "prettier --write \"src/**\" && eslint \"src/**\"",
 		"test": "graphql-codegen && TEST=true jest --coverage --watch",
 		"test:ci": "graphql-codegen && yarn lint && TEST=true jest --coverage",
-		"dev": "MONGODB_VERSION=4.0 mongodb-runner start && concurrently -r \"ts-node-dev --ignore-watch node_modules index.ts\" \"sleep 5 && yarn generate-schema && nodemon\" \"sleep 10 && graphql-codegen --watch\"",
+		"dev": "MONGODB_VERSION=4.0 mongodb-runner start && graphql-codegen && concurrently -r \"ts-node-dev --ignore-watch node_modules index.ts\" \"sleep 5 && yarn generate-schema && nodemon\" \"sleep 10 && graphql-codegen --watch\"",
 		"generate-schema": "get-graphql-schema -h X-Parse-Application-Id=dev -h X-Parse-Master-Key=dev http://localhost:1337/graphql > generated/schema.graphql",
 		"scan": "sonar-scanner",
 		"deploy-sonarqube": "docker run -d --name sonarqube -p 9000:9000 sonarqube",
@@ -38,7 +38,7 @@
 		"nexus": "^0.12.0-rc.13",
 		"parse": "^2.9.1",
 		"parse-dashboard": "^2.0.5",
-		"parse-server": "moumouls/parse-server#4.0.14"
+		"parse-server": "moumouls/parse-server#4.5.0"
 	},
 	"devDependencies": {
 		"ts-node": "^8.5.3",
