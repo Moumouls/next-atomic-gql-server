@@ -1,4 +1,4 @@
-import { makeSchema } from 'nexus'
+import { makeSchema } from '@nexus/schema'
 import * as Query from './Query'
 
 export const customSchema = makeSchema({

@@ -1,4 +1,4 @@
-import { extendType } from 'nexus'
+import { extendType } from '@nexus/schema'
 
 export const resolvers = {
 	customHello: () => 'Hello from Nexus',
